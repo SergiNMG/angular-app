@@ -1,0 +1,15 @@
+<div class="row border-top">
+    <div class="col-12 col-md-5">
+        <img src="../assets/products/{{product.id}}.png" class="w-100 align-items-center" alt="">
+    </div>
+    <div class="col-12 col-md-7 d-flex flex-column p-4">
+        <h1>{{product.name}}</h1>
+        <h5 class="text-muted">{{product.reviews?.length}} Reviews </h5>
+        <hr class="my-5">
+        <h1> {{product.price}}{{product.currency}} </h1>
+        <hr class="my-5">
+        <p> {{product.description}} </p>
+        <hr class="mt-5 mb-4">
+        <button class="btn btn-dark w-25 mb-4" (click)="deleteProduct(product.id)">Delete Item</button>
+    </div>
+</div>

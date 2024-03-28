@@ -1,12 +1,12 @@
 import { Review } from "./review"
 
 export interface ProductBase{
-    id: Number,
-    name: String,
+    id: number,
+    name: string,
     price: number,
-    currency: String,
-    rating: Number,
-    description: String;
+    currency: string,
+    rating: number,
+    description: string;
 }
 
 export interface SimilarProduct extends ProductBase { }

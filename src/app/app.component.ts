@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import mockProducts from './models/products.mock';
 import { Product, ProductBase } from './models/product';
 
@@ -8,7 +8,6 @@ import { Product, ProductBase } from './models/product';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-app';
   products!: Product[];
   productsList!: Product[];
   product: Product = 
@@ -27,7 +26,6 @@ export class AppComponent {
     this.products = mockProducts;
     this.product = this.products[0];
     this.productsList = this.products.slice();
-    console.log(this.product);
   }
 
   selectProduct(id: Number){
@@ -45,6 +43,7 @@ export class AppComponent {
 
   resetFilter() {
     this.products = this.productsList.slice();
+    console.log(this.products);
   }
 
   deleteProduct(id: Number){
@@ -54,6 +53,4 @@ export class AppComponent {
     this.product = this.productsList[0];
     console.log(this.products);
   }
-
-
 }

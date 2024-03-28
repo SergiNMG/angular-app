@@ -1,0 +1,16 @@
+<div class="row h-100 border border-bottom-0">
+    <aside class="d-flex flex-column bg-light">
+        <button class="btn btn-dark w-50 mt-4" (click)="orderHighestPrice()"> Order </button>
+        <br>
+        <button class="btn btn-dark w-50" (click)="resetFilter()"> Reset Filter </button>
+        <br>
+        <h3>Products</h3>
+        <div class="mt-4" *ngFor="let product of products">
+            <div class="d-flex justify-content-between">
+                <a (click)="selectProduct(product.id)">{{product.name}}</a>
+                <i class="bi bi-chevron-right"></i>
+            </div>
+            <hr>
+        </div>
+    </aside>
+</div>

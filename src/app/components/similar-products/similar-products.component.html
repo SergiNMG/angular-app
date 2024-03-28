@@ -1,0 +1,17 @@
+<div *ngIf="product.similarProducts.length" class="row border-top border-bottom">
+    <div class="p-4 align-items-center">
+        <div>
+            <h1 class="text-center mb-5">Similar products</h1>
+        </div>
+        <div class="d-flex flex-wrap flex-row justify-content-around">
+            <div *ngFor="let similarProduct of product.similarProducts" class="d-flex justify-content-center mx-3">
+                <img src="../assets/products/{{similarProduct.id}}.png" class="img-similar-products" alt="">
+                <div class="d-flex flex-column ms-3 justify-content-around">
+                    <p><b>{{similarProduct.name}}</b></p>
+                    <p class="text-muted">Rating: {{similarProduct.rating}}</p>
+                    <p>{{similarProduct.price}}{{similarProduct.currency}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
