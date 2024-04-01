@@ -10,7 +10,7 @@ import { Product, ProductBase } from './models/product';
 export class AppComponent {
   products!: Product[];
   productsList!: Product[];
-  product: Product = 
+  product: Product =
   {
     id: 0,
     name: "",
@@ -21,36 +21,31 @@ export class AppComponent {
     similarProducts: [],
     reviews: []
   };
+  defaultPosition: number = 0;
 
   ngOnInit(){
     this.products = mockProducts;
-    this.product = this.products[0];
+    this.product = this.products[this.defaultPosition];
     this.productsList = this.products.slice();
   }
 
   selectProduct(id: Number){
-    console.log(id);
-    let pos = this.products.findIndex(p => p.id == id);
-    this.product = this.products[pos];
-    console.log(this.product);
+    let position = this.products.findIndex(p => p.id === id);
+    this.product = this.products[position];
   }
 
   orderHighestPrice() {
     this.products.sort((a, b) => b.price - a.price);
-    console.log(this.products);
-    console.log(this.productsList);
   }
 
   resetFilter() {
     this.products = this.productsList.slice();
-    console.log(this.products);
   }
 
   deleteProduct(id: Number){
     this.products = this.products.filter(p => p.id != id);
     this.productsList = this.products.slice();
 
-    this.product = this.productsList[0];
-    console.log(this.products);
+    this.product = this.productsList[this.defaultPosition];
   }
 }

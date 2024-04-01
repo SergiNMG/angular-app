@@ -15,6 +15,8 @@ export class AsideComponent {
   @Output() resetFilterEvent = new EventEmitter<void>();
   @Output() selectProductEvent = new EventEmitter<number>();
 
+  selectedProductId: number | null = null;
+
   orderHighestPrice() {
     this.orderHighestPriceEvent.emit();
   }
@@ -24,7 +26,9 @@ export class AsideComponent {
   }
 
   selectProduct(id: number){
+    this.selectedProductId = id;
     this.selectProductEvent.emit(id);
+    console.log(id);
   }
 
 }
