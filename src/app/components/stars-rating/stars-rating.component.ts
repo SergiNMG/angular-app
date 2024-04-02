@@ -23,7 +23,7 @@ export class StarsRatingComponent implements OnChanges{
 
   fillStars(){
     this.allStars.fill('bi-star-fill', 0, this.fullStars);
-    if (this.hasHalfStar()) { this.refillHalfStars() }; 
+    this.hasHalfStar() ? this.refillHalfStars() : null ; 
   }
 
   hasHalfStar(): boolean{
@@ -32,5 +32,9 @@ export class StarsRatingComponent implements OnChanges{
 
   refillHalfStars(){
     this.allStars[this.fullStars] = 'bi-star-half';
+  }
+
+  setStarColor(): string{
+    return this.rating < 3? 'text-danger' : this.rating <= 4? 'text-warning' : 'text-success';
   }
 }
