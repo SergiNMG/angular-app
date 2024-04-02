@@ -9,6 +9,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SimilarProductsComponent } from './components/similar-products/similar-products.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
 import { AsideComponent } from './components/aside/aside.component';
+import { StarsRatingComponent } from './components/stars-rating/stars-rating.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AsideComponent } from './components/aside/aside.component';
     FooterComponent,
     SimilarProductsComponent,
     ReviewsComponent,
-    AsideComponent
+    AsideComponent,
+    StarsRatingComponent
   ],
   imports: [
     BrowserModule,

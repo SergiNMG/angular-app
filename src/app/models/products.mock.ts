@@ -5,7 +5,7 @@ let mockProducts: Product[] = [{
       "name": "KFA2 GeForce 3070",
       "price": 549,
       "currency": "€",
-      "rating": 4,
+      "rating": 2.7,
       "description": "Tarjeta Gráfica KFA2 GeForce RTX 3070 LHR (1-Click OC Feature) 8GB GDDR6. Para la serie OC, contamos con un diseño innovador de ventiladores que marca una nueva tendencia en la refrigeración de GPU con dos ventiladores gemelos de 102 mm junto con nuestras exclusivas aspas de ventilador, llamadas WINGS.",
       "favorite": false,
       "similarProducts": [
@@ -86,7 +86,7 @@ let mockProducts: Product[] = [{
           "name": "KFA2 GeForce 3070",
           "price": 549,
           "currency": "€",
-          "rating": 4,
+          "rating": 2.7,
           "description": "Tarjeta Gráfica KFA2 GeForce RTX 3070 LHR (1-Click OC Feature) 8GB GDDR6. Para la serie OC, contamos con un diseño innovador de ventiladores que marca una nueva tendencia en la refrigeración de GPU con dos ventiladores gemelos de 102 mm junto con nuestras exclusivas aspas de ventilador, llamadas WINGS.",
           "favorite": false,
         }
@@ -131,7 +131,7 @@ let mockProducts: Product[] = [{
           "name": "KFA2 GeForce 3070",
           "price": 549,
           "currency": "€",
-          "rating": 4,
+          "rating": 2.7,
           "description": "Tarjeta Gráfica KFA2 GeForce RTX 3070 LHR (1-Click OC Feature) 8GB GDDR6. Para la serie OC, contamos con un diseño innovador de ventiladores que marca una nueva tendencia en la refrigeración de GPU con dos ventiladores gemelos de 102 mm junto con nuestras exclusivas aspas de ventilador, llamadas WINGS.",
           "favorite": false,
         }
