@@ -13,10 +13,11 @@
           (resetFilterEvent)="resetFilter()" (selectProductEvent)="selectProduct($event)"></app-aside>
       </div>
 
-      <section class="col-12 col-md-9">
+      <section class="col-12 col-md-9" [ngClass]="product.favorite? 'bg-secondary text-light' : ''">
         <div class="row">
           <!-- Product -->
-          <app-product [product]="product" (deleteProductEvent)="deleteProduct($event)">
+          <app-product [product]="product" (deleteProductEvent)="deleteProduct($event)"
+            (addToWishListEvent)="changeFavorite($event)">
           </app-product>
           <!-- Similar Products -->
           <app-similar-products [product]="product"></app-similar-products>

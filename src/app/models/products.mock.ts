@@ -7,6 +7,7 @@ let mockProducts: Product[] = [{
       "currency": "€",
       "rating": 4,
       "description": "Tarjeta Gráfica KFA2 GeForce RTX 3070 LHR (1-Click OC Feature) 8GB GDDR6. Para la serie OC, contamos con un diseño innovador de ventiladores que marca una nueva tendencia en la refrigeración de GPU con dos ventiladores gemelos de 102 mm junto con nuestras exclusivas aspas de ventilador, llamadas WINGS.",
+      "favorite": false,
       "similarProducts": [
         {
           "id": 2,
@@ -14,7 +15,8 @@ let mockProducts: Product[] = [{
           "price": 729,
           "currency": "$",
           "rating": 4.8,
-          "description": "La tarjeta gráfica Gigabyte GeForce RTX 4070 Ti AERO OC V2 12GB GDDR6X DLSS3 ofrece un rendimiento excepcional para juegos con tecnología de punta. Equipada con NVIDIA DLSS 3 y arquitectura Ada Lovelace, ofrece un trazado de rayos completo para una experiencia visual impresionante. Sus Tensor Cores de 4ta generación proporcionan hasta 4 veces más rendimiento con DLSS 3."
+          "description": "La tarjeta gráfica Gigabyte GeForce RTX 4070 Ti AERO OC V2 12GB GDDR6X DLSS3 ofrece un rendimiento excepcional para juegos con tecnología de punta. Equipada con NVIDIA DLSS 3 y arquitectura Ada Lovelace, ofrece un trazado de rayos completo para una experiencia visual impresionante. Sus Tensor Cores de 4ta generación proporcionan hasta 4 veces más rendimiento con DLSS 3.",
+          "favorite": false
         },
         {
           "id": 4,
@@ -22,7 +24,8 @@ let mockProducts: Product[] = [{
           "price": 1798,
           "currency": "€",
           "rating": 5,
-          "description": "Tarjeta Gráfica MSI GeForce RTX 4090 VENTUS 3X E OC 24GB GDDR6X DLSS3. Combina un diseño elegante y actualizado con la potencia de la GPU NVIDIA® GeForce RTX™ 4090. Con ventiladores TORX FAN 4.0 y control de flujo de aire, la VENTUS ofrece una refrigeración eficiente para un rendimiento sostenido."
+          "description": "Tarjeta Gráfica MSI GeForce RTX 4090 VENTUS 3X E OC 24GB GDDR6X DLSS3. Combina un diseño elegante y actualizado con la potencia de la GPU NVIDIA® GeForce RTX™ 4090. Con ventiladores TORX FAN 4.0 y control de flujo de aire, la VENTUS ofrece una refrigeración eficiente para un rendimiento sostenido.",
+          "favorite": false,
         },
         {
           "id": 3,
@@ -30,7 +33,8 @@ let mockProducts: Product[] = [{
           "price": 619,
           "currency": "€",
           "rating": 4,
-          "description": "Tarjeta Gráfica Sapphire Nitro+ AMD Radeon RX 7900 GRE Gaming OC 16GB GDDR6. La tarjeta gráfica Sapphire Nitro+ AMD Radeon RX 7900 GRE Gaming OC ofrece un BIOS OC para un rendimiento óptimo, con la capacidad de cambiar entre configuraciones primarias y secundarias. Su diseño de potencia digital y protección de fusibles garantizan un overclocking estable. Incorpora un PCB de cobre de alta TG y control inteligente de ventiladores para mantener temperaturas bajas."
+          "description": "Tarjeta Gráfica Sapphire Nitro+ AMD Radeon RX 7900 GRE Gaming OC 16GB GDDR6. La tarjeta gráfica Sapphire Nitro+ AMD Radeon RX 7900 GRE Gaming OC ofrece un BIOS OC para un rendimiento óptimo, con la capacidad de cambiar entre configuraciones primarias y secundarias. Su diseño de potencia digital y protección de fusibles garantizan un overclocking estable. Incorpora un PCB de cobre de alta TG y control inteligente de ventiladores para mantener temperaturas bajas.",
+          "favorite": false,
         }
       ],
       "reviews": [
@@ -57,6 +61,7 @@ let mockProducts: Product[] = [{
       "currency": "$",
       "rating": 4.8,
       "description": "La tarjeta gráfica Gigabyte GeForce RTX 4070 Ti AERO OC V2 12GB GDDR6X DLSS3 ofrece un rendimiento excepcional para juegos con tecnología de punta. Equipada con NVIDIA DLSS 3 y arquitectura Ada Lovelace, ofrece un trazado de rayos completo para una experiencia visual impresionante. Sus Tensor Cores de 4ta generación proporcionan hasta 4 veces más rendimiento con DLSS 3.",
+      "favorite": false,
       "similarProducts": [
         {
           "id": 4,
@@ -64,7 +69,8 @@ let mockProducts: Product[] = [{
           "price": 1798,
           "currency": "€",
           "rating": 5,
-          "description": "Tarjeta Gráfica MSI GeForce RTX 4090 VENTUS 3X E OC 24GB GDDR6X DLSS3. Combina un diseño elegante y actualizado con la potencia de la GPU NVIDIA® GeForce RTX™ 4090. Con ventiladores TORX FAN 4.0 y control de flujo de aire, la VENTUS ofrece una refrigeración eficiente para un rendimiento sostenido."
+          "description": "Tarjeta Gráfica MSI GeForce RTX 4090 VENTUS 3X E OC 24GB GDDR6X DLSS3. Combina un diseño elegante y actualizado con la potencia de la GPU NVIDIA® GeForce RTX™ 4090. Con ventiladores TORX FAN 4.0 y control de flujo de aire, la VENTUS ofrece una refrigeración eficiente para un rendimiento sostenido.",
+          "favorite": false,
         },
         {
           "id": 3,
@@ -72,7 +78,8 @@ let mockProducts: Product[] = [{
           "price": 619,
           "currency": "€",
           "rating": 4,
-          "description": "Tarjeta Gráfica Sapphire Nitro+ AMD Radeon RX 7900 GRE Gaming OC 16GB GDDR6. La tarjeta gráfica Sapphire Nitro+ AMD Radeon RX 7900 GRE Gaming OC ofrece un BIOS OC para un rendimiento óptimo, con la capacidad de cambiar entre configuraciones primarias y secundarias. Su diseño de potencia digital y protección de fusibles garantizan un overclocking estable. Incorpora un PCB de cobre de alta TG y control inteligente de ventiladores para mantener temperaturas bajas."
+          "description": "Tarjeta Gráfica Sapphire Nitro+ AMD Radeon RX 7900 GRE Gaming OC 16GB GDDR6. La tarjeta gráfica Sapphire Nitro+ AMD Radeon RX 7900 GRE Gaming OC ofrece un BIOS OC para un rendimiento óptimo, con la capacidad de cambiar entre configuraciones primarias y secundarias. Su diseño de potencia digital y protección de fusibles garantizan un overclocking estable. Incorpora un PCB de cobre de alta TG y control inteligente de ventiladores para mantener temperaturas bajas.",
+          "favorite": false,
         },
         {
           "id": 1,
@@ -80,7 +87,8 @@ let mockProducts: Product[] = [{
           "price": 549,
           "currency": "€",
           "rating": 4,
-          "description": "Tarjeta Gráfica KFA2 GeForce RTX 3070 LHR (1-Click OC Feature) 8GB GDDR6. Para la serie OC, contamos con un diseño innovador de ventiladores que marca una nueva tendencia en la refrigeración de GPU con dos ventiladores gemelos de 102 mm junto con nuestras exclusivas aspas de ventilador, llamadas WINGS."
+          "description": "Tarjeta Gráfica KFA2 GeForce RTX 3070 LHR (1-Click OC Feature) 8GB GDDR6. Para la serie OC, contamos con un diseño innovador de ventiladores que marca una nueva tendencia en la refrigeración de GPU con dos ventiladores gemelos de 102 mm junto con nuestras exclusivas aspas de ventilador, llamadas WINGS.",
+          "favorite": false,
         }
       ],
       "reviews": [
@@ -107,6 +115,7 @@ let mockProducts: Product[] = [{
       "currency": "€",
       "rating": 4,
       "description": "Tarjeta Gráfica Sapphire Nitro+ AMD Radeon RX 7900 GRE Gaming OC 16GB GDDR6. La tarjeta gráfica Sapphire Nitro+ AMD Radeon RX 7900 GRE Gaming OC ofrece un BIOS OC para un rendimiento óptimo, con la capacidad de cambiar entre configuraciones primarias y secundarias. Su diseño de potencia digital y protección de fusibles garantizan un overclocking estable. Incorpora un PCB de cobre de alta TG y control inteligente de ventiladores para mantener temperaturas bajas.",
+      "favorite": false,
       "similarProducts": [
         {
           "id": 4,
@@ -114,7 +123,8 @@ let mockProducts: Product[] = [{
           "price": 1798,
           "currency": "€",
           "rating": 5,
-          "description": "Tarjeta Gráfica MSI GeForce RTX 4090 VENTUS 3X E OC 24GB GDDR6X DLSS3. Combina un diseño elegante y actualizado con la potencia de la GPU NVIDIA® GeForce RTX™ 4090. Con ventiladores TORX FAN 4.0 y control de flujo de aire, la VENTUS ofrece una refrigeración eficiente para un rendimiento sostenido."
+          "description": "Tarjeta Gráfica MSI GeForce RTX 4090 VENTUS 3X E OC 24GB GDDR6X DLSS3. Combina un diseño elegante y actualizado con la potencia de la GPU NVIDIA® GeForce RTX™ 4090. Con ventiladores TORX FAN 4.0 y control de flujo de aire, la VENTUS ofrece una refrigeración eficiente para un rendimiento sostenido.",
+          "favorite": false,
         },
         {
           "id": 1,
@@ -122,7 +132,8 @@ let mockProducts: Product[] = [{
           "price": 549,
           "currency": "€",
           "rating": 4,
-          "description": "Tarjeta Gráfica KFA2 GeForce RTX 3070 LHR (1-Click OC Feature) 8GB GDDR6. Para la serie OC, contamos con un diseño innovador de ventiladores que marca una nueva tendencia en la refrigeración de GPU con dos ventiladores gemelos de 102 mm junto con nuestras exclusivas aspas de ventilador, llamadas WINGS."
+          "description": "Tarjeta Gráfica KFA2 GeForce RTX 3070 LHR (1-Click OC Feature) 8GB GDDR6. Para la serie OC, contamos con un diseño innovador de ventiladores que marca una nueva tendencia en la refrigeración de GPU con dos ventiladores gemelos de 102 mm junto con nuestras exclusivas aspas de ventilador, llamadas WINGS.",
+          "favorite": false,
         }
       ],
       "reviews": [
@@ -149,6 +160,7 @@ let mockProducts: Product[] = [{
       "currency": "€",
       "rating": 5,
       "description": "Tarjeta Gráfica MSI GeForce RTX 4090 VENTUS 3X E OC 24GB GDDR6X DLSS3. Combina un diseño elegante y actualizado con la potencia de la GPU NVIDIA® GeForce RTX™ 4090. Con ventiladores TORX FAN 4.0 y control de flujo de aire, la VENTUS ofrece una refrigeración eficiente para un rendimiento sostenido.",
+      "favorite": false,
       "similarProducts": [],
       "reviews": null
 }];

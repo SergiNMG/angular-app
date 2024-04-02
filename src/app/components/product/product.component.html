@@ -3,7 +3,13 @@
         <img src="../assets/products/{{product.id}}.png" class="w-100 align-items-center" alt="">
     </div>
     <div class="col-12 col-md-7 d-flex flex-column p-4">
-        <h1>{{product.name}}</h1>
+        <div class="d-flex flex-row justify-content-between align-items-center">
+            <h1>{{product.name}}</h1>
+            <button (click)="addToWishList(product.favorite)" class="btn btn-lg border-0">
+                <i class="bi" [ngClass]="product.favorite? 'text-danger bi-heart-fill': 'bi-heart'">
+                </i>
+            </button>
+        </div>
         <h5 class="text-muted">{{product.reviews?.length}} Reviews </h5>
         <hr class="my-5">
         <h1> {{product.price}}{{product.currency}} </h1>

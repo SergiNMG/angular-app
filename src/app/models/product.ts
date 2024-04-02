@@ -6,7 +6,8 @@ export interface ProductBase{
     price: number,
     currency: string,
     rating: number,
-    description: string;
+    description: string,
+    favorite: boolean
 }
 
 export interface SimilarProduct extends ProductBase { }

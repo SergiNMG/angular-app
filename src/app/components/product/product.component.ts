@@ -12,9 +12,14 @@ export class ProductComponent {
   @Input() product!: Product;
 
   @Output() deleteProductEvent = new EventEmitter<number>();
+  @Output() addToWishListEvent = new EventEmitter<boolean>();
 
   deleteProduct(id: number){
     this.deleteProductEvent.emit(id);
+  }
+
+  addToWishList(favorite: boolean){
+    this.addToWishListEvent.emit(favorite);
   }
 
 }

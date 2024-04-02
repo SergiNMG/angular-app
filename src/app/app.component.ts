@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import mockProducts from './models/products.mock';
 import { Product, ProductBase } from './models/product';
+import { findIndex } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,7 @@ export class AppComponent {
     currency: "",
     rating: 0,
     description: "",
+    favorite: false,
     similarProducts: [],
     reviews: []
   };
@@ -29,9 +31,13 @@ export class AppComponent {
     this.productsList = this.products.slice();
   }
 
-  selectProduct(id: Number){
+  findProduct(id: number): Product{
     let position = this.products.findIndex(p => p.id === id);
-    this.product = this.products[position];
+    return this.product = this.products[position]; 
+  }
+
+  selectProduct(id: number){
+    this.findProduct(id);
   }
 
   orderHighestPrice() {
@@ -47,5 +53,9 @@ export class AppComponent {
     this.productsList = this.products.slice();
 
     this.product = this.productsList[this.defaultPosition];
+  }
+
+  changeFavorite(favorite: boolean){
+    this.product.favorite = !favorite;
   }
 }
