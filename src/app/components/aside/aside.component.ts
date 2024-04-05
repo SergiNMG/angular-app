@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FilterState } from 'src/app/models/filterState';
 import { Product } from 'src/app/models/product';
 
 @Component({
@@ -7,28 +8,36 @@ import { Product } from 'src/app/models/product';
   styleUrls: ['./aside.component.scss']
 })
 export class AsideComponent {
+  selectedProductId: number | null = null;
 
   @Input() products!: Product[];
   @Input() product!: Product;
+  @Input() filterState!: FilterState | undefined;
 
   @Output() orderHighestPriceEvent = new EventEmitter<void>();
-  @Output() resetFilterEvent = new EventEmitter<void>();
+  @Output() orderLowestPriceEvent = new EventEmitter<void>();
+  @Output() resetProductsFilterEvent = new EventEmitter<void>();
   @Output() selectProductEvent = new EventEmitter<number>();
-
-  selectedProductId: number | null = null;
+  @Output() showHigherPriceEvent = new EventEmitter<void>();
 
   orderHighestPrice() {
     this.orderHighestPriceEvent.emit();
   }
 
-  resetFilter(){
-    this.resetFilterEvent.emit();
+  orderLowestPrice() {
+    this.orderLowestPriceEvent.emit();
+  }
+
+  resetProductsFilters(){
+    this.resetProductsFilterEvent.emit();
   }
 
   selectProduct(id: number){
     this.selectedProductId = id;
     this.selectProductEvent.emit(id);
-    console.log(id);
   }
 
+  showHigherPrice(){
+    this.showHigherPriceEvent.emit();
+  }
 }

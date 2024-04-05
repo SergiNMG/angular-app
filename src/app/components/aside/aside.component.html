@@ -1,8 +1,15 @@
 <div class="row h-100 border border-bottom-0">
     <aside class="d-flex flex-column bg-light">
-        <button class="btn btn-dark w-50 mt-4" (click)="orderHighestPrice()"> Order </button>
+        <button class="btn btn-dark w-50 mt-4" (click)="orderHighestPrice()"
+            [ngClass]="{'bg-light text-dark': filterState?.filterHigh}">
+            Order High</button>
         <br>
-        <button class="btn btn-dark w-50" (click)="resetFilter()"> Reset Filter </button>
+        <button class="btn btn-dark w-50" (click)="orderLowestPrice()"
+            [ngClass]="{'bg-light text-dark': filterState?.filterLow}">
+            Order Low</button>
+        <br>
+        <button class="btn btn-dark w-50" (click)="resetProductsFilters()">
+            Reset Filter </button>
         <br>
         <h3>Products</h3>
         <div class="mt-4" *ngFor="let product of products">
