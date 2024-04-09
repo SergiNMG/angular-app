@@ -7,11 +7,14 @@ import { MainPageComponent } from './modules/main-page/main-page.component';
 import { MainPageModule } from './modules/main-page/main-page.module';
 import { SharedModule } from './modules/shared/shared.module';
 import { AboutUsComponent } from './modules/about-us/about-us.component';
+import { PrivateComponent } from './modules/private/private.component';
+import { authHelpRouteGuard } from './modules/shared/guards/authHelpRoute/auth-help-route.guard';
 
 const routes: Routes = [
   { path: '', component: MainPageComponent },
   { path: 'about', component: AboutUsComponent },
-  { path: '**', component: MainPageComponent }
+  { path: 'private', component: PrivateComponent, canActivate: [authHelpRouteGuard] },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

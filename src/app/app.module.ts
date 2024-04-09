@@ -9,6 +9,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MainPageModule } from './modules/main-page/main-page.module';
 import { SharedModule } from './modules/shared/shared.module';
 import { AboutUsModule } from './modules/about-us/about-us.module';
+import { PrivateModule } from './modules/private/private.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AboutUsModule } from './modules/about-us/about-us.module';
     AppRoutingModule,
     MainPageModule,
     SharedModule,
-    AboutUsModule
+    AboutUsModule,
+    PrivateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
