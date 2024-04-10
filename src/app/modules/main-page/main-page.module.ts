@@ -7,6 +7,7 @@ import { AsideComponent } from './components/aside/aside.component';
 import { MainPageComponent } from './main-page.component';
 import { StarsRatingComponent } from '../shared/components/stars-rating/stars-rating.component';
 import { SharedModule } from '../shared/shared.module';
+import { MainPageRoutingModule } from './main-page-routing.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SharedModule } from '../shared/shared.module';
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    MainPageRoutingModule
   ],
   exports: [
     MainPageComponent

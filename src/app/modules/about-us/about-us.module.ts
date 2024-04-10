@@ -5,7 +5,7 @@ import { DescriptionComponent } from './components/description/description.compo
 import { MoreInfoComponent } from './components/more-info/more-info.component';
 import { AboutUsComponent } from './about-us.component';
 import { SharedModule } from '../shared/shared.module';
-import { MailInputComponent } from '../shared/components/mail-input/mail-input.component';
+import { AboutUsRoutingModule } from './about-us-routing.module';
 
 
 
@@ -19,7 +19,8 @@ import { MailInputComponent } from '../shared/components/mail-input/mail-input.c
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    AboutUsRoutingModule
   ]
 })
 export class AboutUsModule { }

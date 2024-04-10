@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PrivateComponent } from './private.component';
+import { PrivateRoutingModule } from './private-routing.module';
 
 
 
@@ -9,7 +10,8 @@ import { PrivateComponent } from './private.component';
     PrivateComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    PrivateRoutingModule
   ]
 })
 export class PrivateModule { }
