@@ -14,8 +14,8 @@
         <h3>Products</h3>
         <div class="mt-4" *ngFor="let product of products">
             <div class="d-flex justify-content-between"
-                [ngClass]="{'text-decoration-none fw-bold': selectedProductId === product.id}">
-                <a (click)="selectProduct(product.id)">
+                [ngClass]="{'text-decoration-none fw-bold': selectedProduct === product}">
+                <a (click)="selectProduct(product)">
                     {{product.name}}
                 </a>
                 <i class="bi bi-chevron-right"></i>

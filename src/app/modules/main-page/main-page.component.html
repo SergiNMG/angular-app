@@ -1,29 +1,24 @@
-<div class="container">
+<div class="container" *ngIf="products.length">
     <div class="row">
         <div class="col-12 col-md-3">
-            <app-aside [product]="product" [products]="products" [filterState]="filterState"
+            <app-aside [selectedProduct]="product" [products]="products" [filterState]="filterState"
                 (orderHighestPriceEvent)="setFilters('filterHigh')"
                 (resetProductsFilterEvent)="setFilters('resetProductsFilter')"
                 (orderLowestPriceEvent)="setFilters('filterLow')"
                 (showHigherPriceEvent)="setFilters('showHighProducts')"
                 (selectProductEvent)="selectProduct($event)"></app-aside>
         </div>
-
         <section class="col-12 col-md-9" [ngClass]="product.favorite? 'bg-secondary text-light' : ''">
             <div class="row">
-                <!-- Product -->
                 <app-product [product]="product" (deleteProductEvent)="deleteProduct($event)"
-                    (addToWishListEvent)="changeFavorite($event)">
+                    (addToWishListEvent)="changeFavoriteValue($event)">
                 </app-product>
-                <!-- Similar Products -->
                 <app-similar-products [product]="product"></app-similar-products>
             </div>
 
             <div *ngIf="product.reviews" class="row p-4">
-                <!-- Reviews -->
                 <app-reviews [product]="product"></app-reviews>
             </div>
         </section>
-
     </div>
 </div>

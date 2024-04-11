@@ -8,17 +8,17 @@ import mockProducts from 'src/app/models/products.mock';
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent {
-  
+
   @Input() product!: Product;
 
-  @Output() deleteProductEvent = new EventEmitter<number>();
+  @Output() deleteProductEvent = new EventEmitter<Product>();
   @Output() addToWishListEvent = new EventEmitter<boolean>();
 
-  deleteProduct(id: number){
-    this.deleteProductEvent.emit(id);
+  deleteProduct(product: Product) {
+    this.deleteProductEvent.emit(product);
   }
 
-  addToWishList(favorite: boolean){
+  addToWishList(favorite: boolean) {
     this.addToWishListEvent.emit(favorite);
   }
 

@@ -8,6 +8,9 @@ import { MainPageComponent } from './main-page.component';
 import { StarsRatingComponent } from '../shared/components/stars-rating/stars-rating.component';
 import { SharedModule } from '../shared/shared.module';
 import { MainPageRoutingModule } from './main-page-routing.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { DateInterceptor } from 'src/app/interceptors/date.interceptor';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,8 @@ import { MainPageRoutingModule } from './main-page-routing.module';
     SimilarProductsComponent,
     ReviewsComponent,
     AsideComponent,
-    MainPageComponent
+    MainPageComponent,
+    CartComponent
   ],
   imports: [
     CommonModule,

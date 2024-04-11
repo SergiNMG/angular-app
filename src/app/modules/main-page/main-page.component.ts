@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FilterState } from 'src/app/models/filterState';
 import { Product } from 'src/app/models/product';
-import mockProducts from 'src/app/models/products.mock';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-main-page',
@@ -11,7 +11,7 @@ import mockProducts from 'src/app/models/products.mock';
 export class MainPageComponent implements OnInit {
   products!: Product[];
   productsList!: Product[];
-  defaultPosition: number = 0;
+  defaultPosition: number = 1;
   product: Product =
     {
       id: 0,
@@ -31,30 +31,40 @@ export class MainPageComponent implements OnInit {
     'showHighProducts': false,
     'resetProductsFilter': false
   };
-  actualFilter: string = '';
 
+  constructor(private productService: ProductService) { }
+
+  //definir funciones para el ngOnInit, no asignaciones
   ngOnInit() {
-    this.products = mockProducts;
-    this.product = this.products[this.defaultPosition];
-    this.productsList = [...this.products];
+    this.productService.getProducts();
+    //this.products = mockProducts;
+    this.suscribeProductsService();
   }
 
-  findProduct(id: number): Product {
-    let position = this.products.findIndex(p => p.id === id);
-    return this.product = this.products[position];
+  suscribeProductsService() {
+    this.productService.products$.subscribe({
+      next: products => {
+        this.products = products;
+        this.setDefaultProduct();
+        this.setProductsCopy();
+      },
+      error: error => {
+        console.error('Error searching products:', error);
+      }
+    });
   }
 
-  selectProduct(id: number) {
-    this.findProduct(id);
+  selectProduct(product: Product): Product {
+    return this.product = product;
   }
 
-  deleteProduct(id: Number) {
-    this.products = this.products.filter(p => p.id != id);
-    this.productsList = this.products;
-    this.product = this.productsList[this.defaultPosition];
+  deleteProduct(product: Product) {
+    this.products = this.products.filter(p => p !== product);
+    this.setProductsCopy();
+    this.setDefaultProduct();
   }
 
-  changeFavorite(favorite: boolean) {
+  changeFavoriteValue(favorite: boolean) {
     this.product.favorite = !favorite;
   }
 
@@ -86,4 +96,13 @@ export class MainPageComponent implements OnInit {
       this.products = [...this.productsList];
     }
   };
+
+  private setDefaultProduct() {
+    this.product = this.products[0];
+  }
+
+  private setProductsCopy() {
+    this.productsList = [...this.products];
+  }
+
 }

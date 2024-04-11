@@ -8,16 +8,15 @@ import { Product } from 'src/app/models/product';
   styleUrls: ['./aside.component.scss']
 })
 export class AsideComponent {
-  selectedProductId: number | null = null;
 
   @Input() products!: Product[];
-  @Input() product!: Product;
+  @Input() selectedProduct!: Product;
   @Input() filterState!: FilterState | undefined;
 
   @Output() orderHighestPriceEvent = new EventEmitter<void>();
   @Output() orderLowestPriceEvent = new EventEmitter<void>();
   @Output() resetProductsFilterEvent = new EventEmitter<void>();
-  @Output() selectProductEvent = new EventEmitter<number>();
+  @Output() selectProductEvent = new EventEmitter<Product>();
   @Output() showHigherPriceEvent = new EventEmitter<void>();
 
   orderHighestPrice() {
@@ -28,16 +27,15 @@ export class AsideComponent {
     this.orderLowestPriceEvent.emit();
   }
 
-  resetProductsFilters(){
+  resetProductsFilters() {
     this.resetProductsFilterEvent.emit();
   }
 
-  selectProduct(id: number){
-    this.selectedProductId = id;
-    this.selectProductEvent.emit(id);
+  selectProduct(product: Product) {
+    this.selectProductEvent.emit(product);
   }
 
-  showHigherPrice(){
+  showHigherPrice() {
     this.showHigherPriceEvent.emit();
   }
 }
