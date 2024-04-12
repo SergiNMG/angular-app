@@ -25,9 +25,9 @@ export class DateInterceptor implements HttpInterceptor {
             product.forEach(product => {
               if (product.reviews) {
                 product.reviews.forEach(review => {
-                  console.log(review.date);
-                  review.date = new Date(review.date);
-                  console.log(review.date);
+                  const date = new Date(review.date);
+                  const simpleDate = `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`
+                  review.date = simpleDate;
                 })
               }
             });
