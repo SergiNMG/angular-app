@@ -10,9 +10,9 @@
         </div>
         <section class="col-12 col-md-9" [ngClass]="product.favorite? 'bg-secondary text-light' : ''">
             <div class="row">
-                <app-product [product]="product" (deleteProductEvent)="deleteProduct($event)"
-                    (addToWishListEvent)="changeFavoriteValue($event)">
-                </app-product>
+                <app-product-view [product]="product" (addToCartEvent)="addToCart($event)"
+                    (deleteProductEvent)="deleteProduct($event)" (addToWishListEvent)="changeFavoriteValue($event)">
+                </app-product-view>
                 <app-similar-products [product]="product"></app-similar-products>
             </div>
 

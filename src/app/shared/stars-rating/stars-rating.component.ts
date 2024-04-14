@@ -1,40 +1,43 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-stars-rating',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './stars-rating.component.html',
   styleUrls: ['./stars-rating.component.scss']
 })
-export class StarsRatingComponent implements OnChanges{
+export class StarsRatingComponent implements OnChanges {
   @Input() rating!: number;
 
   fullStars!: number;
-  allStars!:string[];
+  allStars!: string[];
 
-  ngOnChanges(){
+  ngOnChanges() {
     this.generateStars();
     this.fullStars = Math.trunc(this.rating);
     this.fillStars();
   }
 
-  generateStars(){
+  generateStars() {
     this.allStars = new Array(5).fill('bi-star');
   }
 
-  fillStars(){
+  fillStars() {
     this.allStars.fill('bi-star-fill', 0, this.fullStars);
-    this.hasHalfStar() ? this.refillHalfStars() : null ; 
+    this.hasHalfStar() ? this.refillHalfStars() : null;
   }
 
-  hasHalfStar(): boolean{
+  hasHalfStar(): boolean {
     return this.rating % 1 > 0;
   }
 
-  refillHalfStars(){
+  refillHalfStars() {
     this.allStars[this.fullStars] = 'bi-star-half';
   }
 
-  setStarColor(): string{
-    return this.rating < 3? 'text-danger' : this.rating <= 4? 'text-warning' : 'text-success';
+  setStarColor(): string {
+    return this.rating < 3 ? 'text-danger' : this.rating <= 4 ? 'text-warning' : 'text-success';
   }
 }

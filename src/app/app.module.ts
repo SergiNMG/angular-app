@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 
-import { SharedModule } from './modules/shared/shared.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { DateInterceptor } from './interceptors/date.interceptor';
 
@@ -20,7 +19,6 @@ import { DateInterceptor } from './interceptors/date.interceptor';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule,
     HttpClientModule
   ],
   providers: [{

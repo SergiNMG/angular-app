@@ -26,7 +26,9 @@
                 <a class="nav-link me-4" routerLink="/private" href="">Help</a>
             </li>
             <li class="navbar-item">
-                <button class="btn btn-dark"> <i class="bi bi-cart3"></i> Your Cart </button>
+                <button (click)="navigateTo('/products/cart')" class="btn btn-dark"> <i class="bi bi-cart3"></i> Your
+                    Cart
+                </button>
             </li>
         </ul>
     </div>

@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { Cart } from 'src/app/models/cart';
 import { FilterState } from 'src/app/models/filterState';
 import { Product } from 'src/app/models/product';
-import { ProductService } from 'src/app/services/product.service';
+import { CartService } from 'src/app/services/cart/cart.service';
+import { ProductService } from 'src/app/services/product/product.service';
 
 @Component({
-  selector: 'app-main-page',
-  templateUrl: './main-page.component.html',
-  styleUrls: ['./main-page.component.scss']
+  selector: 'app-product',
+  templateUrl: './product.component.html',
+  styleUrls: ['./product.component.scss']
 })
-export class MainPageComponent implements OnInit {
+export class ProductComponent implements OnInit {
   products!: Product[];
   productsList!: Product[];
   defaultPosition: number = 1;
@@ -32,12 +34,11 @@ export class MainPageComponent implements OnInit {
     'resetProductsFilter': false
   };
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService,
+    private cartService: CartService) { }
 
-  //definir funciones para el ngOnInit, no asignaciones
   ngOnInit() {
     this.productService.getProducts();
-    //this.products = mockProducts;
     this.suscribeProductsService();
   }
 
@@ -71,6 +72,10 @@ export class MainPageComponent implements OnInit {
   setFilters(filterName: keyof FilterState) {
     this.filterActions[filterName]();
     this.changeFilterValue(filterName);
+  }
+
+  addToCart(product: Product) {
+    this.cartService.addToCart(product);
   }
 
   changeFilterValue(filterName: keyof FilterState) {

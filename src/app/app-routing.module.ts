@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { authHelpRouteGuard } from './modules/shared/guards/authHelpRoute/auth-help-route.guard';
+import { authHelpRouteGuard } from './guards/authHelpRoute/auth-help-route.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'products', pathMatch: 'full' },
   {
-    path: 'home',
+    path: 'products',
     loadChildren: () =>
-      import('./modules/main-page/main-page.module').then((m) => m.MainPageModule),
+      import('./modules/product/product.module').then((m) => m.ProductModule),
   },
   {
     path: 'about',
@@ -20,7 +20,7 @@ const routes: Routes = [
       import('./modules/private/private.module').then((m) => m.PrivateModule),
     canActivate: [authHelpRouteGuard],
   },
-  { path: '**', redirectTo: 'home', pathMatch: 'full' }
+  { path: '**', redirectTo: 'products', pathMatch: 'full' }
 ];
 
 @NgModule({
