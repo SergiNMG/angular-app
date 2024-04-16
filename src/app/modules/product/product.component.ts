@@ -14,19 +14,7 @@ export class ProductComponent implements OnInit {
   products!: Product[];
   productsList!: Product[];
   defaultPosition: number = 1;
-  product: Product =
-    {
-      id: 0,
-      name: "",
-      price: 0,
-      currency: "",
-      rating: 0,
-      description: "",
-      favorite: false,
-      similarProducts: [],
-      reviews: [],
-      quantity: 0
-    };
+  product: Product = {} as Product;
 
   filterState: FilterState = {
     'filterHigh': false,
@@ -61,8 +49,10 @@ export class ProductComponent implements OnInit {
   }
 
   deleteProduct(product: Product) {
-    this.products = this.products.filter(p => p !== product);
-    this.setProductsCopy();
+    // this.products = this.products.filter(p => p !== product);
+    // this.setProductsCopy();
+    this.productService.deleteProduct(product);
+    this.updateProductsList();
     this.setDefaultProduct();
   }
 
@@ -109,6 +99,10 @@ export class ProductComponent implements OnInit {
 
   private setProductsCopy() {
     this.productsList = [...this.products];
+  }
+
+  private updateProductsList() {
+    this.productsList = this.productService.getProductsList();
   }
 
 }

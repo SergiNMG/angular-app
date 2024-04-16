@@ -9,6 +9,7 @@ import { Cart } from '../../models/cart';
 })
 export class ProductService {
   private URL = 'assets/data/products.json';
+  private _productsList = this.getProductsList();
 
   private readonly productsSubject: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
   products$: Observable<Product[]> = this.productsSubject.asObservable();
@@ -18,11 +19,30 @@ export class ProductService {
   getProducts(): void {
     this.httpProduct.get<Product[]>(this.URL).subscribe({
       next: products => {
+        this._productsList = products;
         this.productsSubject.next(products);
       },
       error: error => {
         console.error('Error while getting products', error);
       }
     });
+  }
+
+  getProductsList(): Product[] {
+    return this._productsList;
+  }
+
+  deleteProduct(product: Product) {
+    console.log(this._productsList);
+    this._productsList = this._productsList.filter(productInJSON => product.id !== productInJSON.id);
+
+    console.log(this._productsList);
+    this.updateProducts()
+
+    console.log(this._productsList);
+  }
+
+  updateProducts() {
+    this.productsSubject.next(this._productsList);
   }
 }

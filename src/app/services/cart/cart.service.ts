@@ -8,8 +8,8 @@ import { Product } from 'src/app/models/product';
 })
 export class CartService {
 
-  private _cart: Cart = this.getCart();
 
+  private _cart: Cart = {} as Cart;
   private readonly cartSubject: BehaviorSubject<Cart> = new BehaviorSubject(this._cart);
   cart$: Observable<Cart> = this.cartSubject.asObservable();
 
@@ -17,10 +17,6 @@ export class CartService {
     const storedCart = sessionStorage.getItem('cart');
     this._cart = storedCart ? JSON.parse(storedCart) : { productList: [] }
     this.cartSubject.next(this._cart);
-  }
-
-  getCart(): Cart {
-    return this._cart;
   }
 
   addToCart(product: Product) {

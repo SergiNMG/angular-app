@@ -21,19 +21,18 @@ export class CartComponent implements OnInit {
     this.suscribeCartService();
   }
 
-  deleteFromCart(product: Product) {
-    this.cartService.deleteFromCart(product);
-  }
-
   suscribeCartService() {
     this.cartService.cart$.subscribe({
       next: cart => {
         this.cart = cart;
-        this.cart = this.cartService.getCart();
       },
       error: error => {
         console.error('Error getting cart', error)
       }
     });
+  }
+
+  deleteFromCart(product: Product) {
+    this.cartService.deleteFromCart(product);
   }
 }
