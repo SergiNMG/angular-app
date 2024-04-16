@@ -8,33 +8,39 @@ import { Product } from 'src/app/models/product';
 })
 export class CartService {
 
-  private readonly cartSubject: BehaviorSubject<Cart> = new BehaviorSubject<Cart>(this.getCart());
+  private _cart: Cart = this.getCart();
+
+  private readonly cartSubject: BehaviorSubject<Cart> = new BehaviorSubject(this._cart);
   cart$: Observable<Cart> = this.cartSubject.asObservable();
 
-  constructor() { }
+  constructor() {
+    const storedCart = sessionStorage.getItem('cart');
+    this._cart = storedCart ? JSON.parse(storedCart) : { productList: [] }
+    this.cartSubject.next(this._cart);
+  }
 
   getCart(): Cart {
-    const cart = sessionStorage.getItem('cart');
-    return cart ? JSON.parse(cart) : { id: 1, productList: [] };
+    return this._cart;
   }
 
   addToCart(product: Product) {
-    const currentCart = this.cartSubject.value;
-    currentCart.productList.push(product);
-    this.updateCart(currentCart);
+    const existingProduct = this.checkProductInCart(product);
+    existingProduct ? existingProduct.quantity += 1 :
+      this._cart.productList.push({ ...product, quantity: 1 });
+    this.updateCart();
   }
 
-  deleteFromCart(id: number) {
-    const currentCart = this.cartSubject.value;
-    console.log(currentCart.productList);
-    currentCart.productList = currentCart.productList.filter(product => product.id !== id);
-    console.log(currentCart.productList);
-    this.updateCart(currentCart);
+  deleteFromCart(product: Product) {
+    this._cart.productList = this._cart.productList.filter(productInCart => product.id !== productInCart.id);
+    this.updateCart();
   }
 
-  private updateCart(cart: Cart) {
-    this.cartSubject.next(cart);
-    sessionStorage.setItem('cart', JSON.stringify(cart))
+  private updateCart() {
+    this.cartSubject.next(this._cart);
+    sessionStorage.setItem('cart', JSON.stringify(this._cart))
   }
 
+  checkProductInCart(product: Product) {
+    return this._cart.productList.find(productInCart => product.id === productInCart.id);
+  }
 }

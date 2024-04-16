@@ -24,7 +24,8 @@ export class ProductComponent implements OnInit {
       description: "",
       favorite: false,
       similarProducts: [],
-      reviews: []
+      reviews: [],
+      quantity: 0
     };
 
   filterState: FilterState = {

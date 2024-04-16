@@ -4,8 +4,14 @@ import { ProductComponent } from './product.component';
 import { CartComponent } from './components/cart/cart.component';
 
 const routes: Routes = [
-  { path: '', component: ProductComponent },
-  { path: 'cart', component: CartComponent }
+  {
+    path: '',
+    children: [
+      { path: '', component: ProductComponent },
+      { path: 'cart', component: CartComponent },
+      { path: '**', redirectTo: '' }
+    ]
+  }
 ];
 
 @NgModule({

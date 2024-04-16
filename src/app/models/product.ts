@@ -1,6 +1,6 @@
 import { Review } from "./review"
 
-export interface ProductBase{
+export interface ProductBase {
     id: number,
     name: string,
     price: number,
@@ -15,4 +15,5 @@ export interface SimilarProduct extends ProductBase { }
 export interface Product extends ProductBase {
     similarProducts: SimilarProduct[],
     reviews: Review[] | null;
+    quantity: number
 }

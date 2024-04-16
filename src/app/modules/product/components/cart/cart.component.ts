@@ -10,6 +10,7 @@ import { ProductService } from 'src/app/services/product/product.service';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
+
   cart!: Cart;
 
   @Output() deleteFromCartEvent = new EventEmitter<Product>();
@@ -17,17 +18,22 @@ export class CartComponent implements OnInit {
   constructor(private cartService: CartService) { }
 
   ngOnInit() {
-    this.cartService.cart$.subscribe({
-      next: cart => {
-        this.cart = cart;
-      },
-      error: error => {
-        console.error('Error al actualizar el carrito', error)
-      }
-    });
+    this.suscribeCartService();
   }
 
   deleteFromCart(product: Product) {
-    this.cartService.deleteFromCart(product.id);
+    this.cartService.deleteFromCart(product);
+  }
+
+  suscribeCartService() {
+    this.cartService.cart$.subscribe({
+      next: cart => {
+        this.cart = cart;
+        this.cart = this.cartService.getCart();
+      },
+      error: error => {
+        console.error('Error getting cart', error)
+      }
+    });
   }
 }

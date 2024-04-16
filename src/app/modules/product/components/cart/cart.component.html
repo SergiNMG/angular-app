@@ -3,17 +3,20 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th scope="col">Nombre</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Product</th>
                 <th scope="col">Currency</th>
                 <th scope="col">Price</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let product of cart.productList">
+                <td scope="row">{{product.quantity}}</td>
                 <td scope="row">{{ product.name }}</td>
-                <td>{{ product.currency }}</td>
-                <td>{{ product.price }}</td>
-                <td><button (click)="deleteFromCart(product)" class="btn btn-light"> X </button></td>
+                <td scope="row">{{ product.currency }}</td>
+                <td scope="row">{{ product.price }}</td>
+                <td scope="row"><button (click)="deleteFromCart(product)" class="btn btn-light">
+                        <i class="bi bi-x-circle"></i></button></td>
             </tr>
         </tbody>
     </table>

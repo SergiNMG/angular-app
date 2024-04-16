@@ -20,9 +20,9 @@ export class DateInterceptor implements HttpInterceptor {
       .pipe(
         map(event => {
           if (event instanceof HttpResponse) {
-            const product: Product[] = event.body;
+            const products: Product[] = event.body;
 
-            product.forEach(product => {
+            products.forEach(product => {
               if (product.reviews) {
                 product.reviews.forEach(review => {
                   const date = new Date(review.date);

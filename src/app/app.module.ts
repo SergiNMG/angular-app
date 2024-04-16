@@ -13,8 +13,7 @@ import { DateInterceptor } from './interceptors/date.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FooterComponent
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

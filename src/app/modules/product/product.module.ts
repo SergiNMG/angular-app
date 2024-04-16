@@ -8,6 +8,7 @@ import { ProductRoutingModule } from './product-routing.module';
 import { CartComponent } from './components/cart/cart.component';
 import { ProductComponent } from './product.component';
 import { StarsRatingComponent } from "../../shared/stars-rating/stars-rating.component";
+import { FooterComponent } from 'src/app/components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { StarsRatingComponent } from "../../shared/stars-rating/stars-rating.com
   imports: [
     CommonModule,
     ProductRoutingModule,
-    StarsRatingComponent
+    StarsRatingComponent,
+    FooterComponent
   ]
 })
 export class ProductModule { }
