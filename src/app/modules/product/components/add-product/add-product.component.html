@@ -1,1 +1,37 @@
-<p>add-product works!</p>
+<div class="text-center">
+    <form class="mt-5" (ngSubmit)="addProductInfo()">
+        <div class="form-group mb-3">
+            <label for="name">
+                <input type="text" class="form-control" id="name" placeholder="Product name" formControlName="name">
+            </label>
+            <small *ngIf="validateField('name')" id="nameError" class="form-text text-danger">
+                El nombre debe tener un mínimo de 4 letras.
+            </small>
+        </div>
+        <div class="form-group mb-3">
+            <label for="price">
+                <input type="number" class="form-control" id="price" placeholder="Product price"
+                    formControlName="Price">
+            </label>
+            <small *ngIf="validateField('price')" id="priceError" class="form-text text-danger">
+                El precio debe estar entre 1 y 999
+            </small>
+        </div>
+        <div class="form-group mb-3">
+            <label for="description">
+                <input type="text" class="form-control" id="description" placeholder="Description"
+                    formControlName="description">
+            </label>
+            <small *ngIf="validateField('description')" id="descriptionError" class="form-text text-danger">
+                No se aceptan carácteres especiales. Entre 1 y 350 palabras.
+            </small>
+        </div>
+        <button type="submit" [disabled]="addProductForm.invalid" class="btn btn-success my-2 text-center">
+            Send
+        </button>
+    </form>
+    <div class="col-6 offset-3">
+        <p *ngIf="formValue"> {{ formValue | json }} </p>
+    </div>
+
+</div>
