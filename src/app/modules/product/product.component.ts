@@ -49,11 +49,10 @@ export class ProductComponent implements OnInit {
   }
 
   deleteProduct(product: Product) {
-    // this.products = this.products.filter(p => p !== product);
-    // this.setProductsCopy();
     this.productService.deleteProduct(product);
     this.updateProductsList();
     this.setDefaultProduct();
+    this.cartService.deleteFromCart(product);
   }
 
   changeFavoriteValue(favorite: boolean) {

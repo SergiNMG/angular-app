@@ -1,23 +1,25 @@
 <h3 class="text-dark text-center my-5">My Cart: </h3>
-<div *ngIf="cart.productList.length" class="text-center">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th scope="col">Quantity</th>
-                <th scope="col">Product</th>
-                <th scope="col">Currency</th>
-                <th scope="col">Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let product of cart.productList">
-                <td scope="row">{{product.quantity}}</td>
-                <td scope="row">{{ product.name }}</td>
-                <td scope="row">{{ product.currency }}</td>
-                <td scope="row">{{ product.price }}</td>
-                <td scope="row"><button (click)="deleteFromCart(product)" class="btn btn-light">
-                        <i class="bi bi-x-circle"></i></button></td>
-            </tr>
-        </tbody>
-    </table>
+<div class="d-flex justify-content-center">
+    <div *ngIf="cart.productList.length" class="text-center w-75">
+        <table class="table table-striped border">
+            <thead>
+                <tr>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Product</th>
+                    <th scope="col">Currency</th>
+                    <th scope="col">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of cart.productList">
+                    <td scope="row">{{product.quantity}}</td>
+                    <td scope="row">{{ product.name }}</td>
+                    <td scope="row">{{ product.currency }}</td>
+                    <td scope="row">{{ product.price }}</td>
+                    <td scope="row"><button (click)="deleteFromCart(product)" class="btn btn-light">
+                            <i class="bi bi-x-circle"></i></button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

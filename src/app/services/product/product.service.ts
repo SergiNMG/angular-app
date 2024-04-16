@@ -33,13 +33,8 @@ export class ProductService {
   }
 
   deleteProduct(product: Product) {
-    console.log(this._productsList);
     this._productsList = this._productsList.filter(productInJSON => product.id !== productInJSON.id);
-
-    console.log(this._productsList);
     this.updateProducts()
-
-    console.log(this._productsList);
   }
 
   updateProducts() {

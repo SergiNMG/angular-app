@@ -9,6 +9,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { ProductComponent } from './product.component';
 import { StarsRatingComponent } from "../../shared/stars-rating/stars-rating.component";
 import { FooterComponent } from 'src/app/components/footer/footer.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FooterComponent } from 'src/app/components/footer/footer.component';
     SimilarProductsComponent,
     ReviewsComponent,
     AsideComponent,
-    CartComponent
+    CartComponent,
+    AddProductComponent
   ],
   exports: [
     ProductComponent
