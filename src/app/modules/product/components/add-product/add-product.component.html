@@ -1,37 +1,52 @@
-<div class="text-center">
-    <form class="mt-5" (ngSubmit)="addProductInfo()">
+<div class="d-flex justify-content-center">
+    <form class="flex-wrap mt-5 bg-light p-5 border border-dark rounded" (ngSubmit)="addProductInfo()"
+        [formGroup]="addProductForm">
         <div class="form-group mb-3">
-            <label for="name">
-                <input type="text" class="form-control" id="name" placeholder="Product name" formControlName="name">
-            </label>
-            <small *ngIf="validateField('name')" id="nameError" class="form-text text-danger">
-                El nombre debe tener un mínimo de 4 letras.
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Product name" formControlName="name" />
+            <small *ngIf="submitted" id="nameError" class="form-text text-danger">
+                <p *ngIf="addProductForm.get('name')?.hasError('required')">El campo no puede estar vacío</p>
+                <p *ngIf="addProductForm.get('name')?.hasError('minlength')">El campo no puede tener menos de 4 letras
+                </p>
             </small>
         </div>
         <div class="form-group mb-3">
-            <label for="price">
-                <input type="number" class="form-control" id="price" placeholder="Product price"
-                    formControlName="Price">
-            </label>
-            <small *ngIf="validateField('price')" id="priceError" class="form-text text-danger">
-                El precio debe estar entre 1 y 999
+            <label for="price">Price</label>
+            <input type="number" class="form-control" id="price" placeholder="Product price" formControlName="price" />
+            <small *ngIf="submitted" id="priceError" class="form-text text-danger">
+                <p *ngIf="addProductForm.get('price')?.hasError('required')">
+                    El campo no puede estar vacío
+                </p>
+                <p *ngIf="addProductForm.get('price')?.hasError('min') || addProductForm.get('price')?.hasError('max')">
+                    El precio debe estar entre 1 y 999
+                </p>
             </small>
         </div>
         <div class="form-group mb-3">
-            <label for="description">
-                <input type="text" class="form-control" id="description" placeholder="Description"
-                    formControlName="description">
-            </label>
-            <small *ngIf="validateField('description')" id="descriptionError" class="form-text text-danger">
-                No se aceptan carácteres especiales. Entre 1 y 350 palabras.
+            <label for="description">Description</label>
+            <input type="text" class="form-control" id="description" placeholder="Description"
+                formControlName="description" />
+            <small *ngIf="submitted" id="descriptionError" class="form-text text-danger">
+                <p *ngIf="addProductForm.get('description')?.hasError('required')">
+                    El campo no puede estar vacio.
+                </p>
+                <p *ngIf="addProductForm.get('description')?.hasError('maxlength')">
+                    Entre 1 y 350 palabras.
+                </p>
+                <p *ngIf="addProductForm.get('description')?.hasError('noSpecialCharacters')">
+                    No se aceptan caracteres especiales.
+                </p>
             </small>
         </div>
-        <button type="submit" [disabled]="addProductForm.invalid" class="btn btn-success my-2 text-center">
-            Send
-        </button>
+        <div class="form-group mb-3 d-flex align-items-center">
+            <label for="favorite">Favorite</label>
+            <input type="checkbox" class="form-check-input ms-2" id="favorite" formControlName="favorite" />
+        </div>
+        <div class="w-25">
+            <button class="btn btn-success my-2" (click)="changeSubmittedValue()">
+                Send
+            </button>
+        </div>
+        <p *ngIf="submitted"> El producto se ha agregado correctamente </p>
     </form>
-    <div class="col-6 offset-3">
-        <p *ngIf="formValue"> {{ formValue | json }} </p>
-    </div>
-
 </div>

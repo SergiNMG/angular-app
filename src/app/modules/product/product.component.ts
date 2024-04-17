@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Cart } from 'src/app/models/cart';
 import { FilterState } from 'src/app/models/filterState';
 import { Product } from 'src/app/models/product';
@@ -23,16 +24,22 @@ export class ProductComponent implements OnInit {
     'resetProductsFilter': false
   };
 
+  private productServiceSubscription: Subscription | null = null;
+
   constructor(private productService: ProductService,
     private cartService: CartService) { }
 
   ngOnInit() {
-    this.productService.getProducts();
+    // this.productService.getProducts();
     this.suscribeProductsService();
   }
 
+  ngOnDestroy() {
+    this.productServiceSubscription?.unsubscribe();
+  }
+
   suscribeProductsService() {
-    this.productService.products$.subscribe({
+    this.productServiceSubscription = this.productService.products$.subscribe({
       next: products => {
         this.products = products;
         this.setDefaultProduct();
@@ -50,7 +57,6 @@ export class ProductComponent implements OnInit {
 
   deleteProduct(product: Product) {
     this.productService.deleteProduct(product);
-    this.updateProductsList();
     this.setDefaultProduct();
     this.cartService.deleteFromCart(product);
   }
@@ -98,10 +104,6 @@ export class ProductComponent implements OnInit {
 
   private setProductsCopy() {
     this.productsList = [...this.products];
-  }
-
-  private updateProductsList() {
-    this.productsList = this.productService.getProductsList();
   }
 
 }

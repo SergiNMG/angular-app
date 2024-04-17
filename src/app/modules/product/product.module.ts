@@ -10,6 +10,7 @@ import { ProductComponent } from './product.component';
 import { StarsRatingComponent } from "../../shared/stars-rating/stars-rating.component";
 import { FooterComponent } from 'src/app/components/footer/footer.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AddProductComponent } from './components/add-product/add-product.compon
     CommonModule,
     ProductRoutingModule,
     StarsRatingComponent,
-    FooterComponent
+    FooterComponent,
+    ReactiveFormsModule
   ]
 })
 export class ProductModule { }
