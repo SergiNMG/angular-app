@@ -1,5 +1,5 @@
 <h3 class="text-dark text-center my-5">My Cart: </h3>
-<div class="d-flex justify-content-center">
+<div class="d-flex flex-wrap justify-content-center gap-2">
     <div *ngIf="cart.productList.length" class="text-center w-75">
         <table class="table table-striped border">
             <thead>
@@ -7,7 +7,9 @@
                     <th scope="col">Quantity</th>
                     <th scope="col">Product</th>
                     <th scope="col">Currency</th>
-                    <th scope="col">Price</th>
+                    <th scope="col">Ud Price</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
@@ -16,8 +18,35 @@
                     <td scope="row">{{ product.name }}</td>
                     <td scope="row">{{ product.currency }}</td>
                     <td scope="row">{{ product.price }}</td>
-                    <td scope="row"><button (click)="deleteFromCart(product)" class="btn btn-light">
-                            <i class="bi bi-x-circle"></i></button></td>
+                    <td scope="row">
+                        <div class="d-flex flex-wrap gap-1">
+                            <button (click)="addProductQuantity(product)" class="btn btn-dark gap-2">
+                                <i class="bi bi-plus-square"></i>
+                            </button>
+                            <button (click)="substractProductQuantity(product)" class="btn btn-dark">
+                                <i class="bi bi-dash-square"></i>
+                            </button>
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <button (click)="deleteFromCart(product)" class="btn btn-light">
+                            <i class="bi bi-x-circle"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center w-25">
+        <table class="table table-striped border">
+            <thead>
+                <tr>
+                    <th scope="col">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td scope="row">{{totalAmount}}</td>
                 </tr>
             </tbody>
         </table>

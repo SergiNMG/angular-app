@@ -7,7 +7,7 @@ import { Product } from 'src/app/models/product';
   providedIn: 'root'
 })
 export class CartService {
-
+  totalProductsInCart!: number;
 
   private _cart: Cart = {} as Cart;
   private readonly cartSubject: BehaviorSubject<Cart> = new BehaviorSubject(this._cart);
@@ -31,12 +31,22 @@ export class CartService {
     this.updateCart();
   }
 
-  private updateCart() {
-    this.cartSubject.next(this._cart);
-    sessionStorage.setItem('cart', JSON.stringify(this._cart))
+  substractProductQuantity(product: Product) {
+    product.quantity > 1 ? product.quantity -= 1 : this.deleteFromCart(product);
+    this.updateCart();
   }
 
-  checkProductInCart(product: Product) {
+  addProductQuantity(product: Product) {
+    product.quantity++;
+    this.updateCart();
+  }
+
+  private checkProductInCart(product: Product) {
     return this._cart.productList.find(productInCart => product.id === productInCart.id);
+  }
+
+  private updateCart() {
+    this.cartSubject.next(this._cart);
+    sessionStorage.setItem('cart', JSON.stringify(this._cart));
   }
 }

@@ -1,8 +1,8 @@
-<nav class="d-flex flex-column flex-sm-row justify-content-between bg-light p-4">
+<nav class="d-flex flex-wrap flex-column flex-sm-row justify-content-between bg-light p-4">
     <div>
         <a href=""><img src="../assets/pc-icon.png" width="40px" class="d-inline-block align-top" /></a>
     </div>
-    <div class="d-flex justify-content-end align-items-center">
+    <div class="d-flex flex-wrap justify-content-end align-items-center">
         <ul class="navbar-nav d-flex flex-row">
             <li class="navbar-item">
                 <a class="nav-link" routerLink="">Home</a>
@@ -26,8 +26,9 @@
                 <a class="nav-link me-4" routerLink="/private" href="">Help</a>
             </li>
             <li class="navbar-item">
-                <button (click)="navigateTo('/products/cart')" class="btn btn-dark"> <i class="bi bi-cart3"></i> Your
-                    Cart
+                <button (click)="navigateTo('/products/cart')" class="btn btn-dark">
+                    <i class="bi bi-cart3" matBadge="{{totalProductsInCart}}" matBadgeSize="small"></i>
+                    Your Cart
                 </button>
             </li>
         </ul>
