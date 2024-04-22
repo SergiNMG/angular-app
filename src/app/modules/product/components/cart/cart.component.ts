@@ -21,13 +21,13 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
     this.suscribeCartService();
-    this.getProductsInCartData();
   }
 
   suscribeCartService() {
     this.cartService.cart$.subscribe({
       next: cart => {
         this.cart = cart;
+        this.updateCartData(this.cart);
       },
       error: error => {
         console.error('Error getting cart', error)
@@ -35,13 +35,11 @@ export class CartComponent implements OnInit {
     });
   }
 
-  getProductsInCartData() {
-    this.cartService.cart$.subscribe(cart => {
-      this.totalAmount = 0;
-      cart.productList.forEach(productInCar => {
-        this.totalAmount += (productInCar.price * productInCar.quantity);
-        this.productQuantity += productInCar.quantity;
-      });
+  updateCartData(cart: Cart) {
+    this.totalAmount = 0;
+    cart.productList.forEach(productInCar => {
+      this.totalAmount += (productInCar.price * productInCar.quantity);
+      this.productQuantity += productInCar.quantity;
     });
   }
 

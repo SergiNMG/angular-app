@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatCardModule } from '@angular/material/card'
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { MatBadgeModule } from '@angular/material/badge';
     HttpClientModule,
     BrowserAnimationsModule,
     MatIconModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatCardModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

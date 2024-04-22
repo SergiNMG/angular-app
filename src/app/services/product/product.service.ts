@@ -44,17 +44,4 @@ export class ProductService {
   private updateProducts() {
     this.productsSubject.next(this._productsList);
   }
-
-  // saveProduct() {
-  //   this.httpProduct.post<Product[]>(this.URL, this._productsList).subscribe({
-  //     next: updatedProducts => {
-  //       this._productsList = updatedProducts;
-  //       this.productsSubject.next(updatedProducts);
-  //     },
-  //     error: error => {
-  //       console.error('Error posting product', error);
-  //     }
-  //   });
-  // }
-
 }

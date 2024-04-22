@@ -6,6 +6,7 @@ import { MoreInfoComponent } from './components/more-info/more-info.component';
 import { AboutUsComponent } from './about-us.component';
 import { AboutUsRoutingModule } from './about-us-routing.module';
 import { MailInputComponent } from 'src/app/shared/mail-input/mail-input.component';
+import { MatCardModule } from '@angular/material/card';
 
 
 
@@ -20,7 +21,8 @@ import { MailInputComponent } from 'src/app/shared/mail-input/mail-input.compone
   imports: [
     CommonModule,
     AboutUsRoutingModule,
-    MailInputComponent
+    MailInputComponent,
+    MatCardModule
   ]
 })
 export class AboutUsModule { }
