@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Cart } from 'src/app/models/cart';
-import { FilterState } from 'src/app/models/filterState';
-import { Product } from 'src/app/models/product';
+import { Cart } from 'src/app/interfaces/models/cart';
+import { FilterState } from 'src/app/interfaces/models/filterState';
+import { Product } from 'src/app/interfaces/models/Product';
 import { CartService } from 'src/app/services/cart/cart.service';
 import { ProductService } from 'src/app/services/product/product.service';
 

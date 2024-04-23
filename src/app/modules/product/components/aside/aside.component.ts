@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FilterState } from 'src/app/models/filterState';
-import { Product } from 'src/app/models/product';
+import { FilterState } from 'src/app/interfaces/models/filterState';
+import { Product } from 'src/app/interfaces/models/Product';
 
 @Component({
   selector: 'app-aside',

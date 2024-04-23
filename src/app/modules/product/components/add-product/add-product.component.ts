@@ -1,7 +1,8 @@
+import { Dialog } from '@angular/cdk/dialog';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, AsyncValidatorFn, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Observable, of } from 'rxjs';
-import { Product } from 'src/app/models/product';
+import { Product } from 'src/app/interfaces/models/Product';
 import { ProductService } from 'src/app/services/product/product.service';
 
 @Component({
@@ -30,6 +31,7 @@ export class AddProductComponent implements OnInit {
       similarProducts: [],
       reviews: null
     });
+    console.log(this.addProductForm.invalid);
   }
 
   addProductInfo() {
@@ -48,17 +50,15 @@ export class AddProductComponent implements OnInit {
     return value ? null : { 'noSpecialCharacters': true };
   }
 
-  changeSubmittedValue() {
+  submitForm() {
     this.submitted = true;
-    this.returnProductIfFormIsValid();
+    if (this.addProductForm.valid) {
+      this.addProduct();
+    }
   }
 
-  private returnProductIfFormIsValid() {
-    if (this.addProductForm.valid) {
-      this.newProduct = this.addProductForm.value;
-      console.log(this.newProduct);
-      this.productService.addProduct(this.newProduct);
-    }
-    return;
+  private addProduct() {
+    this.newProduct = this.addProductForm.value;
+    this.productService.addProduct(this.newProduct);
   }
 }

@@ -7,8 +7,8 @@ import {
   HttpResponse,
 } from '@angular/common/http';
 import { Observable, map, tap } from 'rxjs';
-import { Product } from '../models/product';
-import { Review } from '../models/review';
+import { Product } from '../interfaces/models/Product';
+import { Review } from '../interfaces/models/Review';
 
 @Injectable()
 export class DateInterceptor implements HttpInterceptor {

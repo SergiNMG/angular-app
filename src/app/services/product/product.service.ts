@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, catchError, tap, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, map } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { Product } from '../../models/product';
-import { Cart } from '../../models/cart';
+import { Product } from 'src/app/interfaces/models/Product';
+import { ProductList } from 'src/app/interfaces/models/ProductList';
 
 @Injectable({
   providedIn: 'root'
@@ -19,15 +19,17 @@ export class ProductService {
   }
 
   getProducts(): void {
-    this.httpProduct.get<Product[]>(this.URL).subscribe({
-      next: products => {
-        this._productsList = products;
-        this.updateProducts();
-      },
-      error: error => {
-        console.error('Error while getting products', error);
-      }
-    });
+    this.httpProduct.get<Product[]>(this.URL)
+      .pipe(map(response => new ProductList(response)))
+      .subscribe({
+        next: productList => {
+          this._productsList = productList.products;
+          this.updateProducts();
+        },
+        error: error => {
+          console.error('Error while getting products', error);
+        }
+      });
   }
 
   deleteProduct(product: Product) {

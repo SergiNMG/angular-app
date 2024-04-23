@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-center">
+<div class="d-flex justify-content-center ">
     <form class="flex-wrap mt-5 bg-light p-5 border border-dark rounded" (ngSubmit)="addProductInfo()"
         [formGroup]="addProductForm">
         <div class="form-group mb-3">
@@ -43,10 +43,9 @@
             <input type="checkbox" class="form-check-input ms-2" id="favorite" formControlName="favorite" />
         </div>
         <div class="w-25">
-            <button class="btn btn-success my-2" (click)="changeSubmittedValue()">
+            <button class="btn btn-success my-2" (click)="submitForm()">
                 Send
             </button>
         </div>
-        <p *ngIf="submitted && addProductForm.valid"> El producto se ha agregado correctamente </p>
     </form>
 </div>

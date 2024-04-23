@@ -11,6 +11,7 @@ import { StarsRatingComponent } from "../../shared/stars-rating/stars-rating.com
 import { FooterComponent } from 'src/app/components/footer/footer.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog'
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProductRoutingModule,
     StarsRatingComponent,
     FooterComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule
   ]
 })
 export class ProductModule { }
