@@ -10,7 +10,7 @@ export class Review implements IReview {
 
     constructor(reviewContract: IReviewContract) {
         this.image = reviewContract.image;
-        this.name = reviewContract.name;
+        this.name = `${reviewContract.name} ${reviewContract.surname}`;
         this.rating = reviewContract.rating;
         this.opinion = reviewContract.opinion;
         this.date = reviewContract.date;

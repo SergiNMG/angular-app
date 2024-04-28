@@ -13,23 +13,23 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let product of cart.productList">
-                    <td scope="row">{{product.quantity}}</td>
-                    <td scope="row">{{ product.name }}</td>
-                    <td scope="row">{{ product.currency }}</td>
-                    <td scope="row">{{ product.price }}</td>
+                <tr *ngFor="let productCart of cart.productList">
+                    <td scope="row">{{productCart.quantity}}</td>
+                    <td scope="row">{{ productCart.product.name }}</td>
+                    <td scope="row">{{ productCart.product.currency }}</td>
+                    <td scope="row">{{ productCart.product.price }}</td>
                     <td scope="row">
                         <div class="d-flex flex-wrap gap-1">
-                            <button (click)="addProductQuantity(product)" class="btn btn-dark gap-2">
+                            <button (click)="addProductQuantity(productCart)" class="btn btn-dark gap-2">
                                 <i class="bi bi-plus-square"></i>
                             </button>
-                            <button (click)="substractProductQuantity(product)" class="btn btn-dark">
+                            <button (click)="substractProductQuantity(productCart)" class="btn btn-dark">
                                 <i class="bi bi-dash-square"></i>
                             </button>
                         </div>
                     </td>
                     <td scope="row">
-                        <button (click)="deleteFromCart(product)" class="btn btn-light">
+                        <button (click)="deleteFromCart(productCart.product)" class="btn btn-light">
                             <i class="bi bi-x-circle"></i>
                         </button>
                     </td>

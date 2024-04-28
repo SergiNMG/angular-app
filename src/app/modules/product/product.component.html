@@ -1,7 +1,7 @@
-<div class="container" *ngIf="products.length">
+<div class="container" *ngIf="productList.products.length">
     <div class="row">
         <div class="col-12 col-md-3">
-            <app-aside [selectedProduct]="product" [products]="products" [filterState]="filterState"
+            <app-aside [selectedProduct]="product" [products]="productList.products" [filterState]="filterState"
                 (orderHighestPriceEvent)="setFilters('filterHigh')"
                 (resetProductsFilterEvent)="setFilters('resetProductsFilter')"
                 (orderLowestPriceEvent)="setFilters('filterLow')"

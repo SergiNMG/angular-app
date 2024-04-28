@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "KFA2 GeForce 3070",
+    "title": "KFA2 GeForce 3070",
     "price": 549,
     "currency": "€",
     "rating": 2.7,
@@ -10,7 +10,7 @@
     "similarProducts": [
       {
         "id": 2,
-        "name": "Gigabyte GeForce 4070 Ti AERO",
+        "title": "Gigabyte GeForce 4070 Ti AERO",
         "price": 729,
         "currency": "$",
         "rating": 4.8,
@@ -19,7 +19,7 @@
       },
       {
         "id": 4,
-        "name": "MSI GeForce RTX 4090 3X",
+        "title": "MSI GeForce RTX 4090 3X",
         "price": 1798,
         "currency": "€",
         "rating": 5,
@@ -28,7 +28,7 @@
       },
       {
         "id": 3,
-        "name": "Sapphire Nitro+ RX 7900",
+        "title": "Sapphire Nitro+ RX 7900",
         "price": 619,
         "currency": "€",
         "rating": 4,
@@ -39,14 +39,14 @@
     "reviews": [
       {
         "image": "",
-        "name": "Homer J. Simpson",
+        "title": "Homer J. Simpson",
         "rating": 5,
         "opinion": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
         "date": "10-04-2024 19:57"
       },
       {
         "image": "",
-        "name": "Marge Simpson",
+        "title": "Marge Simpson",
         "rating": 4,
         "opinion": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque.",
         "date": "09-04-2024 20:00"
@@ -55,7 +55,7 @@
   },
   {
     "id": 2,
-    "name": "Gigabyte GeForce 4070 Ti AERO",
+    "title": "Gigabyte GeForce 4070 Ti AERO",
     "price": 729,
     "currency": "$",
     "rating": 4.8,
@@ -64,7 +64,7 @@
     "similarProducts": [
       {
         "id": 4,
-        "name": "MSI GeForce RTX 4090 3X",
+        "title": "MSI GeForce RTX 4090 3X",
         "price": 1798,
         "currency": "€",
         "rating": 5,
@@ -73,7 +73,7 @@
       },
       {
         "id": 3,
-        "name": "Sapphire Nitro+ RX 7900",
+        "title": "Sapphire Nitro+ RX 7900",
         "price": 619,
         "currency": "€",
         "rating": 4,
@@ -82,7 +82,7 @@
       },
       {
         "id": 1,
-        "name": "KFA2 GeForce 3070",
+        "title": "KFA2 GeForce 3070",
         "price": 549,
         "currency": "€",
         "rating": 2.7,
@@ -93,14 +93,14 @@
     "reviews": [
       {
         "image": "",
-        "name": "P. Escobar",
+        "title": "P. Escobar",
         "rating": 5,
         "opinion": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
         "date": "10-04-2024 19:57"
       },
       {
         "image": "",
-        "name": "M.A. Nestle",
+        "title": "M.A. Nestle",
         "rating": 2,
         "opinion": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque.",
         "date": "09-04-2024 20:00"
@@ -109,7 +109,7 @@
   },
   {
     "id": 3,
-    "name": "Sapphire Nitro+ RX 7900",
+    "title": "Sapphire Nitro+ RX 7900",
     "price": 619,
     "currency": "€",
     "rating": 4,
@@ -118,7 +118,7 @@
     "similarProducts": [
       {
         "id": 4,
-        "name": "MSI GeForce RTX 4090 3X",
+        "title": "MSI GeForce RTX 4090 3X",
         "price": 1798,
         "currency": "€",
         "rating": 5,
@@ -127,7 +127,7 @@
       },
       {
         "id": 1,
-        "name": "KFA2 GeForce 3070",
+        "title": "KFA2 GeForce 3070",
         "price": 549,
         "currency": "€",
         "rating": 2.7,
@@ -138,14 +138,14 @@
     "reviews": [
       {
         "image": "",
-        "name": "Stan Marsh",
+        "title": "Stan Marsh",
         "rating": 1,
         "opinion": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
         "date": "10-04-2024 19:57"
       },
       {
         "image": "",
-        "name": "Randy Marsh",
+        "title": "Randy Marsh",
         "rating": 5,
         "opinion": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque.",
         "date": "09-04-2024 20:00"
@@ -154,7 +154,7 @@
   },
   {
     "id": 4,
-    "name": "MSI GeForce RTX 4090 3X",
+    "title": "MSI GeForce RTX 4090 3X",
     "price": 1798,
     "currency": "€",
     "rating": 5,

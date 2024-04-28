@@ -1,5 +1,5 @@
-import { SimilarProduct } from "./contracts/IProductContract";
 import { IReview } from "./IReview";
+import { ISimilarProduct } from "./ISimilarProduct";
 
 export interface IProduct {
     id: number,
@@ -9,7 +9,6 @@ export interface IProduct {
     rating: number,
     description: string,
     favorite: boolean,
-    similarProducts: SimilarProduct[],
-    reviews: IReview[] | null;
-    quantity: number
+    similarProducts: ISimilarProduct[] | null | undefined,
+    reviews: IReview[] | null | undefined;
 }

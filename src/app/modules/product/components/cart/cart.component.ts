@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Cart } from 'src/app/interfaces/models/cart';
+import { ICart } from 'src/app/interfaces/ICart';
 import { CartService } from 'src/app/services/cart/cart.service';
 import { Product } from 'src/app/interfaces/models/Product';
+import { IProductCart } from 'src/app/interfaces/IProductCart';
 
 @Component({
   selector: 'app-cart',
@@ -10,7 +11,7 @@ import { Product } from 'src/app/interfaces/models/Product';
 })
 export class CartComponent implements OnInit {
 
-  cart!: Cart;
+  cart!: ICart;
   totalAmount: number = 0;
   productQuantity: number = 0;
 
@@ -34,24 +35,24 @@ export class CartComponent implements OnInit {
     });
   }
 
-  updateCartData(cart: Cart) {
+  updateCartData(cart: ICart) {
     this.totalAmount = 0;
     cart.productList.forEach(productInCar => {
-      this.totalAmount += (productInCar.price * productInCar.quantity);
+      this.totalAmount += (productInCar.product.price * productInCar.quantity);
       this.productQuantity += productInCar.quantity;
     });
   }
 
-  substractProductQuantity(product: Product) {
+  substractProductQuantity(product: IProductCart) {
     this.cartService.substractProductQuantity(product);
   }
 
-  addProductQuantity(product: Product) {
+  addProductQuantity(product: IProductCart) {
     this.cartService.addProductQuantity(product);
   }
 
   updateProductQuantity() {
-    this.cart.productList.forEach(prouctInCart => {
+    this.cart.productList.forEach((prouctInCart: IProductCart) => {
       this.substractProductQuantity(prouctInCart);
       this.addProductQuantity(prouctInCart);
     });

@@ -24,5 +24,4 @@ export class ProductViewComponent {
   addToCart(product: Product) {
     this.addToCartEvent.emit(product);
   }
-
 }

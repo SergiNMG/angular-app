@@ -2,7 +2,7 @@ import { IReviewContract } from "./IReviewContract"
 
 export interface IProductBaseContract {
     id: number,
-    name: string,
+    title: string,
     price: number,
     currency: string,
     rating: number,
@@ -10,12 +10,11 @@ export interface IProductBaseContract {
     favorite: boolean
 }
 
-export interface SimilarProduct extends IProductBaseContract { }
+export interface ISimilarProductContract extends IProductBaseContract { }
 
 export interface IProductContract extends IProductBaseContract {
-    similarProducts: SimilarProduct[],
-    reviews: IReviewContract[] | null;
-    quantity: number;
+    similarProducts: ISimilarProductContract[],
+    reviews: IReviewContract[];
 }
 
 

@@ -9,7 +9,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./mail-input.component.scss']
 })
 export class MailInputComponent {
-  @Input() title!: string;
-  @Input() description !: string;
   @Input() textButton !: string;
 }

@@ -8,7 +8,7 @@ import { ProductRoutingModule } from './product-routing.module';
 import { CartComponent } from './components/cart/cart.component';
 import { ProductComponent } from './product.component';
 import { StarsRatingComponent } from "../../shared/stars-rating/stars-rating.component";
-import { FooterComponent } from 'src/app/components/footer/footer.component';
+import { FooterComponent } from 'src/app/shared/footer/footer.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog'

@@ -38,6 +38,7 @@ export class StarsRatingComponent implements OnChanges {
   }
 
   setStarColor(): string {
-    return this.rating < 3 ? 'text-danger' : this.rating <= 4 ? 'text-warning' : 'text-success';
+    return this.rating >= 0 && this.rating < 3 ? 'text-danger' :
+      this.rating <= 4 ? 'text-warning' : 'text-success';
   }
 }

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Cart } from 'src/app/interfaces/models/cart';
 import { FilterState } from 'src/app/interfaces/models/filterState';
 import { Product } from 'src/app/interfaces/models/Product';
+import { ProductList } from 'src/app/interfaces/models/ProductList';
 import { CartService } from 'src/app/services/cart/cart.service';
 import { ProductService } from 'src/app/services/product/product.service';
 
@@ -12,8 +12,8 @@ import { ProductService } from 'src/app/services/product/product.service';
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
-  products!: Product[];
-  productsList!: Product[];
+  productList!: ProductList;
+  productListCopy: ProductList = {} as ProductList;
   defaultPosition: number = 1;
   product: Product = {} as Product;
 
@@ -30,7 +30,6 @@ export class ProductComponent implements OnInit {
     private cartService: CartService) { }
 
   ngOnInit() {
-    // this.productService.getProducts();
     this.suscribeProductsService();
   }
 
@@ -40,10 +39,10 @@ export class ProductComponent implements OnInit {
 
   suscribeProductsService() {
     this.productServiceSubscription = this.productService.products$.subscribe({
-      next: products => {
-        this.products = products;
+      next: ProductList => {
+        this.productList = ProductList;
         this.setDefaultProduct();
-        this.setProductsCopy();
+        this.setProductsCopy(ProductList);
       },
       error: error => {
         console.error('Error searching products:', error);
@@ -65,13 +64,13 @@ export class ProductComponent implements OnInit {
     this.product.favorite = !favorite;
   }
 
+  addToCart(product: Product) {
+    this.cartService.addToCart(product);
+  }
+
   setFilters(filterName: keyof FilterState) {
     this.filterActions[filterName]();
     this.changeFilterValue(filterName);
-  }
-
-  addToCart(product: Product) {
-    this.cartService.addToCart(product);
   }
 
   changeFilterValue(filterName: keyof FilterState) {
@@ -85,25 +84,24 @@ export class ProductComponent implements OnInit {
 
   private filterActions: { [name in keyof FilterState]: () => void } = {
     filterHigh: () => {
-      this.products = this.products.sort((a, b) => b.price - a.price);
+      this.productList.products = this.productList.products.sort((a, b) => b.price - a.price);
     },
     filterLow: () => {
-      this.products = this.products.sort((a, b) => a.price - b.price);
+      this.productList.products = this.productList.products.sort((a, b) => a.price - b.price);
     },
     showHighProducts: () => {
-      this.products = this.products.filter(p => p.price > 649);
+      this.productList.products = this.productList.products.filter(p => p.price > 649);
     },
     resetProductsFilter: () => {
-      this.products = [...this.productsList];
+      this.productList.products = this.productListCopy.products.slice();
     }
   };
 
   private setDefaultProduct() {
-    this.product = this.products[0];
+    this.product = this.productList.products[0];
   }
 
-  private setProductsCopy() {
-    this.productsList = [...this.products];
+  private setProductsCopy(productList: ProductList) {
+    this.productListCopy.products = productList.products.slice();
   }
-
 }

@@ -17,7 +17,8 @@ export class AddProductComponent implements OnInit {
   newProduct!: Product;
   formValue: any;
 
-  constructor(private formBuilder: FormBuilder, private productService: ProductService) { }
+  constructor(private formBuilder: FormBuilder,
+    private productService: ProductService) { }
 
   ngOnInit() {
     this.addProductForm = this.formBuilder.group({
